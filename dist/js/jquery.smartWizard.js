@@ -159,9 +159,9 @@
             }
 
             // Create the toolbar buttons
-            var btnNext = this.options.toolbarSettings.showNextButton !== false ? $('<button></button>').text(this.options.lang.next).addClass('btn btn-secondary sw-btn-next').attr('type', 'button') : null;
-            var btnPrevious = this.options.toolbarSettings.showPreviousButton !== false ? $('<button></button>').text(this.options.lang.previous).addClass('btn btn-secondary sw-btn-prev').attr('type', 'button') : null;
-            var btnGroup = $('<div></div>').addClass('btn-group mr-2 sw-btn-group').attr('role', 'group').append(btnPrevious, btnNext);
+            var btnNext = this.options.toolbarSettings.showNextButton !== false ? $('<button></button>').text(this.options.lang.next).addClass('mdc-button sw-btn-next').attr('type', 'button') : null;
+            var btnPrevious = this.options.toolbarSettings.showPreviousButton !== false ? $('<button></button>').text(this.options.lang.previous).addClass('mdc-button mdc-mr-2  sw-btn-prev').attr('type', 'button') : null;
+            var btnGroup = $('<div></div>').addClass('btn-group mdc-mr-2 sw-btn-group').attr('role', 'group').append(btnPrevious, btnNext);
 
             // Add extra toolbar buttons
             var btnGroupExtra = null;
@@ -482,13 +482,17 @@
             if (!this.options.cycleSteps) {
                 if (0 >= idx) {
                     $('.sw-btn-prev', this.main).addClass("disabled");
+                    $('.sw-btn-prev').prop("disabled", true);
                 } else {
                     $('.sw-btn-prev', this.main).removeClass("disabled");
+                    $('.sw-btn-prev').prop("disabled", false);
                 }
                 if (this.steps.length - 1 <= idx) {
                     $('.sw-btn-next', this.main).addClass("disabled");
+                    $('.sw-btn-next').prop("disabled", true);
                 } else {
                     $('.sw-btn-next', this.main).removeClass("disabled");
+                    $('.sw-btn-next').prop("disabled", false);
                 }
             }
             return true;
